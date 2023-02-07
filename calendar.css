@@ -1,65 +1,3 @@
-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
-    /* background: linear-gradient(113.30489053920314deg, rgba(244, 72, 105,1) 6.255036261079775%,rgba(159, 1, 234,1) 95.29613215149072%); */
-    color: rgb(20, 18, 37);
-    padding-top: .75rem;
-    width: 100%;
-    height: 100%;
-}
-.main{
-background: rgba(255, 255, 255, 0.2);
-border-radius: 4px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.3);
-width: 99%;
-height: 99%;
-padding: .5rem;
-}
-/* .left-side-top .assist-section, .message-section{
-    
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-} */
-/* .right-side-top{
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-} */
-.svg{
-    width: 5rem;
-}
-/* .calendar-left{
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-
-    border: 1px solid rgba(255, 255, 255, 0.3);   
-} */
-.event{
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);   
-}
-
-#hiden{
-  display: none;
-}
-
 /* css imported*/
 
 :root {
@@ -187,48 +125,7 @@ padding: .5rem;
     background-color: var(--light-btn);
     border-radius: 20%;
   }
-  .month-list {
-    position: relative;
-    left: 0;
-    top: -50px;
-    background-color: #ebebeb;
-    color: var(--light-text);
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    gap: 5px;
-    border-radius: 20px;
-  }
-  .month-list > div {
-    display: grid;
-    place-content: center;
-    margin: 5px 10px;
-    transition: all 0.2s ease-in-out;
-  }
-  .month-list > div > div {
-    border-radius: 15px;
-    padding: 10px;
-    cursor: pointer;
-  }
-  .month-list > div > div:hover {
-    background-color:var(--light-btn);
-    color: var(--dark-text);
-    transform: scale(0.9);
-    transition: all 0.2s ease-in-out;
-  }
-  .month-list.show {
-    visibility: visible;
-    pointer-events: visible;
-    transition: 0.6s ease-in-out;
-    animation: to-left .71s forwards;
-  }
-  .month-list.hideonce{
-    visibility: hidden;
-  }
-  .month-list.hide {
-    animation: to-right 1s forwards;
-    visibility: none;
-    pointer-events: none;
-  }
+  
   .date-time-formate {
     width: max-content;
     height: max-content;
@@ -273,21 +170,4 @@ padding: .5rem;
   }
   .date-formate.showtime {
     animation: showtime 1s forwards;
-  }
-
-
-
-  /* newss */
-
-  .news-articles{
-    height: 9rem;
-  }
-
-
-
-
-  /* responsive for iphone  */
-
-  @media screen {
-    
   }
