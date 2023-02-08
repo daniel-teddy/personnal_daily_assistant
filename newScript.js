@@ -22,7 +22,7 @@ todayShowDate.textContent = ThisDay;
 
 /* time section */
 
-  function currentTime() {
+  /* function currentTime() {
     let date = new Date(); 
     let hh = date.getHours();
     let mm = date.getMinutes();
@@ -48,7 +48,7 @@ todayShowDate.textContent = ThisDay;
   }
   
   currentTime();
-  console.log(currentTime);
+  console.log(currentTime); */
   
 /* Weather Section */
 

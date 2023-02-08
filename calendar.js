@@ -25,7 +25,7 @@ const isLeapYear = (year) => {
   ];
   let month_picker = document.querySelector('#month-picker');
   const dayTextFormate = document.querySelector('.day-text-formate');
-  const timeFormate = document.querySelector('.time-formate');
+  const timeFormate = document.querySelector('time-formate');
   const dateFormate = document.querySelector('.date-formate');
   const localFormate = document.querySelector('.date-formate-local');
   
@@ -116,12 +116,12 @@ const isLeapYear = (year) => {
       second: 'numeric',
     };
     const formateTimer = new Intl.DateTimeFormat('en-us', option).format(timer);
-   /*  let time = `${`${timer.getHours()}`.padStart(
+    let time = `${`${timer.getHours()}`.padStart(
       2,
       '0'
     )}:${`${timer.getMinutes()}`.padStart(
       2,
       '0'
-    )}: ${`${timer.getSeconds()}`.padStart(2, '0')}`; */
+    )}: ${`${timer.getSeconds()}`.padStart(2, '0')}`; 
     thistodayShowTime.textContent = formateTimer;
   }, 1000);
