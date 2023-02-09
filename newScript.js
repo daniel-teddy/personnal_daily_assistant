@@ -236,6 +236,7 @@ showCalendar.addEventListener("click", () => {
 
 /* todo section */
 /* 
+//uncommit
 
 window.addEventListener('load', ()=> {
     todos = JSON.parse(localStorage.getItem("todos")) || [];
