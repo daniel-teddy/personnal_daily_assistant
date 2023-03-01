@@ -5,6 +5,7 @@ const isLeapYear = (year) => {
     );
 };
 
+
   const getFebDays = (year) => {
     return isLeapYear(year) ? 29 : 28;
   };
@@ -124,4 +125,5 @@ const isLeapYear = (year) => {
       '0'
     )}: ${`${timer.getSeconds()}`.padStart(2, '0')}`; 
     thistodayShowTime.textContent = formateTimer;
+   
   }, 1000);

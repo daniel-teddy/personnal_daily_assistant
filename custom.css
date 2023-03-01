@@ -1,4 +1,71 @@
-/* css imported*/
+.spinner {
+    width: 60px;
+    height: 60px;
+    position: relative;
+   }
+   
+   .spinner .dot {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+   }
+   
+   .spinner .dot::after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: rgb(12, 180, 231);
+   }
+   
+   @keyframes spin {
+    to {
+     transform: rotate(360deg);
+    }
+   }
+   
+   .spinner .dot {
+    animation: spin 2s infinite;
+   }
+   
+   .spinner .dot:nth-child(2) {
+    animation-delay: 100ms;
+   }
+   
+   .spinner .dot:nth-child(3) {
+    animation-delay: 200ms;
+   }
+   
+   .spinner .dot:nth-child(4) {
+    animation-delay: 300ms;
+   }
+   
+   .spinner .dot:nth-child(5) {
+    animation-delay: 400ms;
+   }
+   
+.event {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .hide {
+    display: none;
+  }
+  .main{
+      
+      width: 98vw;
+  }
+  .svg{
+      width: 5rem;
+  }
+  
+   /* css imported*/
 
 :root {
     --dark-text: #f8fbff;
@@ -67,6 +134,7 @@
     position: relative;
     cursor: pointer;
     animation: to-top 1s forwards;
+    padding-left: 15px;
   }
   .month-picker {
     padding: 5px 10px;
@@ -171,3 +239,77 @@
   .date-formate.showtime {
     animation: showtime 1s forwards;
   }
+
+
+
+
+
+/* Variables */
+:root {
+	--primary: #EA40A4;
+	--business: #3a82ee;
+	--personal: var(--primary);
+	--light: #EEE;
+	--grey: #888;
+	--dark: #313154;
+	--danger: #ff5b57;
+
+	--shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+	--business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
+	--personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
+}
+
+/* active option */
+
+.active i{
+  color: var(--danger);
+}
+
+
+
+
+/* End of Variables */
+input[type="radio"],
+input[type="checkbox"] {
+	display: none;
+}
+
+.bubble {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	border-radius: 999px;
+	border: 2px solid var(--business);
+	box-shadow: var(--business-glow);
+}
+
+.bubble.personal {
+	border-color: var(--personal);
+	box-shadow: var(--personal-glow);
+}
+
+.bubble::after {
+	content: '';
+	display: block;
+	opacity: 0;
+	width: 0px;
+	height: 0px;
+	background-color: var(--business);
+	box-shadow: var(--business-glow);
+	border-radius: 999px;
+	transition: 0.2s ease-in-out;
+}
+
+.bubble.personal::after {
+	background-color: var(--personal);
+	box-shadow: var(--personal-glow);
+}
+
+input:checked ~ .bubble::after {
+	width: 10px;
+	height: 10px;
+	opacity: 1;
+}

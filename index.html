@@ -8,104 +8,133 @@
     <title>Lillith : Personnal AI Assiistant</title>
     <link rel="shortcut icon" href="./assets/perso-ia.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- link to remix icons -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="mycss.css">
-    <link rel="stylesheet" href="calendar.css">
-    <link rel="stylesheet" href="todos.css">
-    <!-- Google Font Link for Icons -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="custom.css">
+    <!-- remix icon cdn -->
+    <link link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
 </head>
 
-<body>
-    <div
-        class="main event h-fit overflow-x-auto flex flex-col items-center justify-between md:h-screen md:pr-2 md:pl-2 md:w-screen md:mr-1 md:h-fit">
-        <div class="top flex flex-col md:flex-row p-1 items-center justify-between h-fit w-full md:h-1/2">
-            <div
-                class="top-left h-fit flex flex-col items-center justify-between md:w-2/5 md:flex-col md:top-0 md:h-80">
-                <div
-                    class="assist-section w-96 p-2 event flex flex-col items-center justify-center md:w-full md:mr-2 md:flex-row">
+<body class="bg-slate-800 flex h-screen items-center justify-center">
+    <div class="spinner ">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+    <div class="all  hidden text-slate-50 h-full w-screen flex flex-col items-start justify-between">
+        <nav class="top flex flex-row items-center justify-evenly border-b-2 border-slate-400 w-screen mt-1  pr-3 p-1">
+            <h1 id="homeBtn"
+                class="flex items-center justify-center p-2 rounded bg-slate-400 hover:bg-slate-500 transition text-slate-800  hover:font-bold pl-4 pr-4 active">
+                <i class="ri-home-heart-line text-2xl font-semibold md:font-normal"></i>
+            </h1>
+            <h1 id="todosBtn"
+                class="flex items-center justify-center p-2 rounded bg-slate-400 hover:bg-slate-500 transition text-slate-800  hover:font-bold pl-4 pr-4">
+                <i class="ri-calendar-event-line text-2xl font-semibold md:font-normal"></i>
+            </h1>
+            <h1 id="newsBtn"
+                class="flex items-center justify-center p-2 rounded bg-slate-400 hover:bg-slate-500 transition text-slate-800  hover:font-bold pl-4 pr-4">
+                <i class="ri-book-read-line text-2xl font-semibold md:font-normal"></i>
+            </h1>
+            <h1 id="messageBtn"
+                class="flex items-center justify-center p-2 rounded bg-slate-400 hover:bg-slate-500 transition text-slate-800  hover:font-bold pl-4 pr-4">
+                <i class="ri-discuss-line text-2xl font-semibold md:font-normal"></i>
+            </h1>
+            <h1 id="walletBtn"
+                class="flex items-center justify-center p-2 rounded bg-slate-400 hover:bg-slate-500 transition text-slate-800  hover:font-bold pl-4 pr-4">
+                <i class="ri-wallet-2-line text-2xl font-semibold md:font-normal"></i>
+            </h1>
+            <h1 id="profileBtn"
+                class="flex items-center justify-center p-2 rounded bg-slate-400 hover:bg-slate-500 transition text-slate-800  hover:font-bold pl-4 pr-4">
+                <i class="ri-user-heart-line text-2xl font-semibold md:font-normal"></i>
+            </h1>
+        </nav>
+        <div class="content  h-full w-screen flex flex-col items-center justify-between gap-4">
+            <div id="homePage" class="main w-screen h-fit flex flex-col items-center justify-between gap-4">
+                <div class=" event flex items-center justify-center mt-3 p-3 w-full h-fit">
+                    <h1 id="w_text">-</h1>
+                </div>
+                <div class="assist-section event mt-2 w-full h-fit p-2  flex flex-col items-center justify-center">
                     <div class="assist-section-img w-full h-fit flex flex-col items-center justify-around">
-                        <h1 class="text-xl font-bold date-formate">-</h1>
-                        <h1 class="time-formate mt-1 event p-1 w-32 flex flex-col items-center justify-center text-sm font-bold"
+                        <h1 class="text-xl font-semibold date-formate">-</h1>
+                        <h1 class="time-formate mt-1 event p-1 w-32 flex flex-col items-center justify-center text-sm font-semibold text-slate-50 "
                             id="clock" onload="currentTime()">-</h1>
                     </div>
                     <div class="meteo-section w-full h-fit flex flex-col items-center justify-center ">
-                        <img src="" alt="img" class="svg mt-2" id="my_svg">
+                        <img src="" alt="" class="svg mt-2" id="my_svg">
                         <h1 class="desc text-lg font-semibold">-</h1>
-                        <h1 class="text-2xl"><span class="current-temp">-</span> ℃</h1>
-                        <button id="location_button" class="rounded-sm p-1 event text-sm mt-2">Location</button>
+                        <h1 class="text-2xl" ><span class="current-temp">click me to get temperature in </span> ℃</h1>
+                        <button id="" class="loacion rounded-sm p-1 pl-6 pr-6 event text-sm mt-2">Location</button>
 
                     </div>
                 </div>
-                <div class="message-section w-full p-1 h-fit event mt-2 md:mr-2">
+                <div class=" message-section w-full p-1 h-fit event mt-2">
                     <h1 class="font-bold"> Lilith: <br>
-                        " <span class="font-normal suggestion">this is my suggestion 1</span> "</h1>
+                        <span class="font-normal suggestion">no suggestions yet, get the temperature first</span> .</h1>
                 </div>
+                <div class="top-right w-full h-80 p-1 mt-1 event flex flex-col items-center justify-between">
+
+                    <div class="calendar w-full h-full ">
+                        <div class="calendar-header flex flex-row items-center justify-between pl-2 pr-2 pb-2">
+
+                            <div class="year-picker flex flex-row gap-2 items-center justify-between" id="year-picker">
+                                <span class="year-change" id="pre-month">
+                                    <pre>-</pre>
+                                </span>
+
+                                <span class="month-picker" id="month-picker"> - </span>
+                                <span class="year-change" id="next-month">
+                                    <pre>+</pre>
+                                </span>
+                            </div>
+                            <span id="year"> - </span>
+
+                        </div>
+
+                        <div class="calendar-body pl-2 pr-2">
+                            <div class="calendar-week-days flex flex-row items-center justify-between">
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tue</div>
+                                <div>Wed</div>
+                                <div>Thu</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
+                            </div>
+                            <div class="calendar-days">
+                            </div>
+                        </div>
+                    </div>
+                    
+
+
+                </div>
+
             </div>
-            <div class="top-right w-full h-80 p-1 mt-1 event flex flex-col items-center justify-between md:w-3/5">
-
-                <div class="calendar w-full h-full hide">
-                    <div class="calendar-header flex flex-row items-center justify-between pl-2 pr-2 pb-2">
-
-                        <div class="year-picker flex flex-row gap-2 items-center justify-between" id="year-picker">
-                            <span class="year-change" id="pre-month">
-                                <pre>-</pre>
-                            </span>
-
-                            <span class="month-picker" id="month-picker"> - </span>
-                            <span class="year-change" id="next-month">
-                                <pre>+</pre>
-                            </span>
-                        </div>
-                        <span id="year"> - </span>
-
-                    </div>
-
-                    <div class="calendar-body pl-2 pr-2">
-                        <div class="calendar-week-days flex flex-row items-center justify-between">
-                            <div>Sun</div>
-                            <div>Mon</div>
-                            <div>Tue</div>
-                            <div>Wed</div>
-                            <div>Thu</div>
-                            <div>Fri</div>
-                            <div>Sat</div>
-                        </div>
-                        <div class="calendar-days">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="thisapp w-full h-full flex-col items-center justify-between truncate" id="my_todos">
+            <div id="tasksPage" class="hidden h-full w-full">
+                <div class="thisapp event w-full h-full flex-col items-center justify-between truncate" id="my_todos">
                     
                     <!-- New Todo -->
                     <section class="create-todo">
                         
                         <form id="new-todo-form" class="flex flex-col w-full items-center justify-center">
                             
-                            <input class="p-1 w-full"
-                                type="text" 
-                                placeholder="e.g. Learn a new skill"
-                                name="content"
-                                id="content" />
+                            <input class="p-1 w-full text-slate-800" type="text" placeholder="e.g. Learn a new skill" name="content" id="content">
                             
                             <div class="options w-full mt-1 flex flex-row items-center justify-around">
                                 <label class="flex flex-row items-center justify-around gap-1">
-                                    <input type="radio" name="category" id="category1" value="business" /> 
+                                    <input type="radio" name="category" id="category1" value="business"> 
                                     <span class="bubble business"></span>
                                     <div>Business</div>
                                 </label>
                                 <label class="flex flex-row items-center justify-around gap-1">
-                                    <input type="radio" name="category" id="category2" value="personal" />
+                                    <input type="radio" name="category" id="category2" value="personal">
                                     <span class="bubble personal"></span>
                                     <div>Personal</div>
                                 </label>
                             </div>
             
-                            <input class="event p-1 mb-0" type="submit" value="Add todo" />
+                            <input class="event p-1 mb-0" type="submit" value="Add todo">
                         </form>
                         
                     </section>
@@ -119,24 +148,240 @@
                     <!-- End of Todo List -->
             
                 </div>
+                
             </div>
-            <button id="mybtn" class="event rounded-sm text-sm mt-2 p-1 hide md:ml-2">Schedule</button>
-            <button id="mybtn_hide" class="event rounded-sm text-sm mt-2 p-1 md:ml-2">Calendar</button>
-        </div>
-        <div class="bottom w-full h-44 mt-2 md:h-1/2">
-            <div
-                class="newsText event w-full rounded p-1 flex items-center justify-center mb-2 font-semibold text-xl text-slate-800">
-                Latest News For You</div>
-            <div class="news-articles h-72 w-full event overflow-x-auto p-2">
-                <ul id="newsList">
+            <div id="newsPage" class="hidden h-full flex items-center justify-center p-4">
+                <div class="bottom w-full h-full mt-2 ">
+                    <div
+                        class="newsText event w-full rounded p-1 flex items-center justify-center mb-2 font-semibold text-xl text-slate-800">
+                        Latest News For You</div>
+                    <div class="news-articles h-full w-full overflow-x-auto p-2">
+                        <ul id="newsList">
 
-                </ul>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="messagePage" class="hidden w-full h-full flex items-center justify-arroun p-4">
+                <div class="bottom w-full h-full mt-2 ">
+                    <div
+                        class=" event w-full rounded p-1 flex items-center justify-center mb-2 font-semibold text-xl text-slate-800">
+                        Send a quick message</div>
+                    <div class=" h-full w-full overflow-x-auto p-2">
+                        <ul id="my_messages" class="flex flex-col items-start justify-start w-full h-fit gap-4">
+                            <li class="flex flex-col items-start justify-start w-full h-fit event">
+                                <div class="">destination</div>
+                                <div class="flex flex-col items-center gap-4 justify-center w-full h-fit">
+                                    <h2>Hello, I want to hire you, I need more information!</h2>
+                                    <a href="https://api.whatsapp.com/send?phone=+90(539)1074305&amp;text=Hello, I want to hire you, I need more information!" target="_blank" class="flex flex-row items-center justify-evenly w-2/4 h-fit event mb-2">
+                                        <h2>Send to MOM</h2>
+                                        <i class="ri-whatsapp-line"></i>
+                                     </a>
+                            </div>
+                            </li>
+                            <li class="flex flex-col items-start justify-start w-full h-fit event">
+                                <div class="">destination</div>
+                                <div class="flex flex-col items-center gap-4 justify-center w-full h-fit">
+                                    <h2>Hello, I want to hire you, I need more information!</h2>
+                                    <a href="https://api.whatsapp.com/send?phone=+90(539)1074305&amp;text=Hello, I want to hire you, I need more information!" target="_blank" class="flex flex-row items-center justify-evenly w-2/4 h-fit event mb-2">
+                                        <h2>Send to MOM</h2>
+                                        <i class="ri-whatsapp-line"></i>
+                                     </a>
+                            </div>
+                            </li>
+                            <li class="flex flex-col items-start justify-start w-full h-fit event">
+                                <div class="">destination</div>
+                                <div class="flex flex-col items-center gap-4 justify-center w-full h-fit">
+                                    <h2>Hello, I want to hire you, I need more information!</h2>
+                                    <a href="https://api.whatsapp.com/send?phone=+90(539)1074305&amp;text=Hello, I want to hire you, I need more information!" target="_blank" class="flex flex-row items-center justify-evenly w-2/4 h-fit event mb-2">
+                                        <h2>Send to MOM</h2>
+                                        <i class="ri-whatsapp-line"></i>
+                                     </a>
+                            </div>
+                            </li>
+                            <li class="flex flex-col items-start justify-start w-full h-fit event">
+                                <div class="">destination</div>
+                                <div class="flex flex-col items-center gap-4 justify-center w-full h-fit">
+                                    <h2>Hello, I want to hire you, I need more information!</h2>
+                                    <a href="https://api.whatsapp.com/send?phone=+90(539)1074305&amp;text=Hello, I want to hire you, I need more information!" target="_blank" class="flex flex-row items-center justify-evenly w-2/4 h-fit event mb-2">
+                                        <h2>Send to MOM</h2>
+                                        <i class="ri-whatsapp-line"></i>
+                                     </a>
+                            </div>
+                            </li>
+                            <li class="flex flex-col items-start justify-start w-full h-fit event">
+                                <div class="">destination</div>
+                                <div class="flex flex-col items-center gap-4 justify-center w-full h-fit">
+                                    <h2>Hello, I want to hire you, I need more information!</h2>
+                                    <a href="https://api.whatsapp.com/send?phone=+90(539)1074305&amp;text=Hello, I want to hire you, I need more information!" target="_blank" class="flex flex-row items-center justify-evenly w-2/4 h-fit event mb-2">
+                                        <h2>Send to MOM</h2>
+                                        <i class="ri-whatsapp-line"></i>
+                                     </a>
+                            </div>
+                            </li>
+                            <li class="flex flex-col items-start justify-start w-full h-fit event">
+                                <div class="">destination</div>
+                                <div class="flex flex-col items-center gap-4 justify-center w-full h-fit">
+                                    <h2>Hello, I want to hire you, I need more information!</h2>
+                                    <a href="https://api.whatsapp.com/send?phone=+90(539)1074305&amp;text=Hello, I want to hire you, I need more information!" target="_blank" class="flex flex-row items-center justify-evenly w-2/4 h-fit event mb-2">
+                                        <h2>Send to MOM</h2>
+                                        <i class="ri-whatsapp-line"></i>
+                                     </a>
+                            </div>
+                            </li>
+                            <li class="flex flex-col items-start justify-start w-full h-fit event">
+                                <div class="">destination</div>
+                                <div class="flex flex-col items-center gap-4 justify-center w-full h-fit">
+                                    <h2>Hello, I want to hire you, I need more information!</h2>
+                                    <a href="https://api.whatsapp.com/send?phone=+90(539)1074305&amp;text=Hello, I want to hire you, I need more information!" target="_blank" class="flex flex-row items-center justify-evenly w-2/4 h-fit event mb-2">
+                                        <h2>Send to MOM</h2>
+                                        <i class="ri-whatsapp-line"></i>
+                                     </a>
+                            </div>
+                            </li>
+                            <li class="flex flex-col items-start justify-start w-full h-fit event">
+                                <div class="">destination</div>
+                                <div class="flex flex-col items-center gap-4 justify-center w-full h-fit">
+                                    <h2>Hello, I want to hire you, I need more information!</h2>
+                                    <a href="https://api.whatsapp.com/send?phone=+90(539)1074305&amp;text=Hello, I want to hire you, I need more information!" target="_blank" class="flex flex-row items-center justify-evenly w-2/4 h-fit event mb-2">
+                                        <h2>Send to MOM</h2>
+                                        <i class="ri-whatsapp-line"></i>
+                                     </a>
+                            </div>
+                            </li>
+                            <li class="flex flex-col items-start justify-start w-full h-fit event">
+                                <div class="">destination</div>
+                                <div class="flex flex-col items-center gap-4 justify-center w-full h-fit">
+                                    <h2>Hello, I want to hire you, I need more information!</h2>
+                                    <a href="https://api.whatsapp.com/send?phone=+90(539)1074305&amp;text=Hello, I want to hire you, I need more information!" target="_blank" class="flex flex-row items-center justify-evenly w-2/4 h-fit event mb-2">
+                                        <h2>Send to MOM</h2>
+                                        <i class="ri-whatsapp-line"></i>
+                                     </a>
+                            </div>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="walletPage" class="hidden w-full h-full flex flex-col items-center justify-between">
+                <div class=" event w-full rounded p-2 flex flex-row items-center justify-between mt-2 mb-2 font-semibold ml-2 mr-2">
+                    <h2 class="text-slate-200">Current Ballance</h2>
+                    <h1 class="text-3xl font-bold text-green-400">$ 15000</h1>
+                </div>
+                <div class="w-full h-full flex flex-col items-center justify-start">
+                    <div class="w-full flex items-start h-fit pl-3 p-4">
+                        <button id="add_goal" class="border-none w-fit h-14 flex items-center justify-between p-2 event rounded gap-3">
+                            <i class="ri-add-circle-fill text-4xl font-bold text-slate-800"></i>
+                            <h1 >Add saving Goal</h1>
+                        </button>
+                    </div>
+                    <ul id="saving_list" class=" w-full h-5/6 flex flex-col items-center justify-start overflow-x-auto gap-3">
+                        <li class="w-11/12 flex flex-col h-fit pt-2 pb-2 event rounded-lg items-center justify-between">
+                            <div class="w-full flex flex-row items-start justify-between p-2 h-fit">
+                                <div class="">
+                                    <h1 class="flex items-center justify-center p-2 rounded bg-slate-400 hover:bg-slate-500 transition text-slate-800 hover:text-slate-100 hover:font-bold pl-4 pr-4">
+                                        <!-- <i class="ri-home-heart-line text-2xl font-semibold md:font-normal"></i> -->
+                                        <img class="h-12 w-10" src="https://img.icons8.com/glyph-neue/100/null/airplane-take-off.png"/>
+                                    </h1>
+                                    <h1 class="text-2xl font-semibold">Travelling</h1>
+                                </div>
+                                <button class="border-none w-14 h-14 flex items-center justify-center p-2 event rounded">
+                                    <i class="ri-add-circle-fill text-4xl font-bold text-slate-800"></i>
+                                </button>
+                            </div>
+                            <div class="w-full flex flex-col items-center justify-between p-2 h-fit">
+                                <input type="range" name="" id="" class="w-full">
+                                <div class="w-full flex flex-row items-center justify-between p-2 ">
+                                    <div class="">$250</div>
+                                    <div class="">$ 500</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="w-11/12 flex flex-col h-fit pt-2 pb-2 event rounded-lg items-center justify-between">
+                            <div class="w-full flex flex-row items-start justify-between p-2 h-fit">
+                                <div class="">
+                                    <h1 class="flex items-center justify-center p-2 rounded bg-slate-400 hover:bg-slate-500 transition text-slate-800 hover:text-slate-100 hover:font-bold pl-4 pr-4">
+                                        <!-- <i class="ri-home-heart-line text-2xl font-semibold md:font-normal"></i> -->
+                                        <img class="h-12 w-10" src="https://img.icons8.com/glyph-neue/100/null/airplane-take-off.png"/>
+                                    </h1>
+                                    <h1 class="text-2xl font-semibold">Travelling</h1>
+                                </div>
+                                <button class="border-none w-14 h-14 flex items-center justify-center p-2 event rounded">
+                                    <i class="ri-add-circle-fill text-4xl font-bold text-slate-800"></i>
+                                </button>
+                            </div>
+                            <div class="w-full flex flex-col items-center justify-between p-2 h-fit">
+                                <input type="range" name="" id="" class="w-full">
+                                <div class="w-full flex flex-row items-center justify-between p-2 ">
+                                    <div class="">$250</div>
+                                    <div class="">$ 500</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="w-11/12 flex flex-col h-fit pt-2 pb-2 event rounded-lg items-center justify-between">
+                            <div class="w-full flex flex-row items-start justify-between p-2 h-fit">
+                                <div class="">
+                                    <h1 class="flex items-center justify-center p-2 rounded bg-slate-400 hover:bg-slate-500 transition text-slate-800 hover:text-slate-100 hover:font-bold pl-4 pr-4">
+                                        <!-- <i class="ri-home-heart-line text-2xl font-semibold md:font-normal"></i> -->
+                                        <img class="h-12 w-10" src="https://img.icons8.com/glyph-neue/100/null/airplane-take-off.png"/>
+                                    </h1>
+                                    <h1 class="text-2xl font-semibold">Travelling</h1>
+                                </div>
+                                <button class="border-none w-14 h-14 flex items-center justify-center p-2 event rounded">
+                                    <i class="ri-add-circle-fill text-4xl font-bold text-slate-800"></i>
+                                </button>
+                            </div>
+                            <div class="w-full flex flex-col items-center justify-between p-2 h-fit">
+                                <input type="range" name="" id="" class="w-full">
+                                <div class="w-full flex flex-row items-center justify-between p-2 ">
+                                    <div class="">$250</div>
+                                    <div class="">$ 500</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div id="saving_new" class="hidden w-full h-5/6 flex flex-col items-center justify-evenly event p-4">
+                        <h1 class="event text-2xl font-semibold p-3 text-slate-900">Add a new saving goal !</h1>
+                        <form class="w-full text-slate-900 font-semibold">
+                            <div class="w-full h-fit flex flex-col items-start justify-center p-4 gap-3 ">
+                                <label for="goal_title" class="text-slate-100">Title</label>
+                                <input type="text" name="goal_title" id="" class="w-full h-10 p-2 text-xl font-semibold flex items-center justify-center" required placeholder="Enter the objective you want to set " >
+                            </div>
+                            <div class="w-full h-fit flex flex-col items-start justify-center p-4 gap-3 ">
+                                <label for="goal_amount" class="text-slate-100">Amount</label>
+                                <input type="text" name="goal_amount" id="" class="w-full h-10 p-2 text-xl font-semibold flex items-center justify-center" required placeholder="Enter the amount you want to achieve " >
+                            </div>
+                            <div class="w-full h-fit flex flex-col items-start justify-center p-4 gap-3 ">
+                                <label for="monthly_amount" class="text-slate-100">Monthly contribution</label>
+                                <input type="text" name="monthly_amount" id="" class="w-full h-10 p-2 text-xl font-semibold flex items-center justify-center" required placeholder="Enter the amount you want to deposit monthly " >
+                            </div>
+                            <div class="w-full flex items-start justify-center h-fit pl-3 p-4">
+                                <button type="submit" class="border-none w-fit h-14 flex items-center justify-between pl-4 pr-4 p-2 event rounded gap-3">
+                                    <i class="ri-add-circle-fill text-4xl font-bold text-slate-800"></i>
+                                    <h1 class="">Add New</h1>
+                                </button>
+                            </div>
+                            <div class="w-full flex items-center justify-center">
+                                <h3 id="exit_add_Goal" class="text-red-800 p-2 w-fit font-bold ">click me to exit</h3>
+                            </div>
+                        </form>
+                    </div> 
+                    
+                    
+                </div>
+            </div>
+            <div id="profilePage" class="hidden w-full h-full flex flex-col items-center justify-between">
+                <div class="w-full flex flex-col h-fit pt-2 pb-2 event items-center justify-center">items 1</div>
+                <div class="w-full flex flex-col h-fit pt-2 pb-2 event items-center justify-center">items 2</div>
+                <div class="w-full flex flex-col h-fit pt-2 pb-2 event items-center justify-center">items 2</div>
+                <div class="w-full flex flex-col h-fit pt-2 pb-2 event items-center justify-center">items 2</div>
             </div>
         </div>
     </div>
-    <script src="newScript.js"></script>
+
+    <script src="main.js"></script>
     <script src="calendar.js"></script>
-    <script src="todos.js"></script>
 </body>
 
 </html>
