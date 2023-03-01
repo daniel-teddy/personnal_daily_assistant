@@ -1,3 +1,41 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  /*
+      Blue: hsl(207, 90%, 61%)
+      Purple: hsl(250, 66%, 75%)
+      Pink: hsl(356, 66%, 75%)
+      Teal: hsl(174, 63%, 62%)
+  */
+
+  --hue: 207;
+  --sat: 90%;
+  --lig: 61%;
+  --first-color: hsl(var(--hue), var(--sat), var(--lig));
+
+}
+
+/*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar{
+  border-radius: .5rem;
+  background-color: hsl(var(--hue), 8%, 66%);
+}
+::-webkit-scrollbar-thumb{
+  border-radius: .5rem;
+  background-color: hsl(var(--hue), 8%, 54%);
+}
+::-webkit-scrollbar-thumb:hover {
+  border-radius: .5rem;
+  background-color: hsl(var(--hue), 8%, 44%);
+}
+
+
+
+
 .spinner {
     width: 60px;
     height: 60px;
