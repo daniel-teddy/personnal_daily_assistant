@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".spinner").classList.add("hidden");
 		//page
         document.querySelector(".all").classList.remove("hidden");
-	//}, 1000);
+	// }, 1000);
+
+        
 
 	}, 6000);
 });
@@ -27,12 +29,29 @@ const ThisDay = (`${today} / ${currentMonth} / ${currentYear}`);
 
 //console.log(ThisDay); 
 
-//Notification 
-/* Notification.requestPermission().then(perm => {
+
+
+//Notification When user loose focus
+Notification.requestPermission().then(perm => {
     if (perm === 'granted') {
-        new Notification('Lillith: hey teddy')
+        //new Notification('Lillith: hey teddy')
     } 
-}) */
+}) 
+
+let notif
+
+document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === 'hidden') {
+
+       notif = new Notification("Lillith: Hey Teddy !!!", {
+            body: "Don't forget to check your Todo List !!!",
+            icon: './assets/perso-ia.png'
+        })
+    } /* else {
+        notif.close();
+    } */
+})
+
 
 
 todayShowDate.textContent = ThisDay;
@@ -57,6 +76,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if(navigator.geolocation){
         //check if the navigator supports geolocalisation api
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        
+    }else {
+        alert("this browser doesn't support geolocation api !!!")
+    }
+});
+meteo_section.addEventListener("click", () => {
+    if(navigator.geolocation){
+        //check if the navigator supports geolocalisation api
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        //Notification When user loose focus
+    Notification.requestPermission().then(perm => {
+    if (perm === 'granted') {
+        //new Notification('Lillith: hey teddy')
+    } 
+}) 
         
     }else {
         alert("this browser doesn't support geolocation api !!!")
@@ -132,32 +166,47 @@ function weatherDetails(info){
     if(id == 800){
         wIcon.src = "./assets/Icons/clear.svg";
         wSuggestion.innerText = "What a good weather to go for a out";
+        new Notification('Lillith: hey teddy',{
+            body: "The temperature is "+ temp + ' ℃ ' + wSuggestion.innerText,
+            icon: './assets/perso-ia.png'
+        })
     
     }else if(id >= 200 && id <= 232){
         wIcon.src = "./assets/Icons/storm.svg";  
         wSuggestion.innerText = "Going out ? mind taking an umbrella and something to keep you dry";
+        new Notification('Lillith: hey teddy',{
+            body: "The temperature is "+ temp + ' ℃ ' + wSuggestion.innerText,
+            icon: './assets/perso-ia.png'
+        })
     }else if(id >= 600 && id <= 622){
         wIcon.src = "./assets/Icons/snow.svg";
         wSuggestion.innerText = "Snowing Outside, stay warm and avoid going out !!!";
+        new Notification('Lillith: hey teddy',{
+            body: "The temperature is "+ temp + ' ℃ ' + wSuggestion.innerText,
+            icon: './assets/perso-ia.png'
+        })
     }else if(id >= 701 && id <= 781){
         wIcon.src = "./assets/Icons/haze.svg";
        wSuggestion.innerText = "Hazy .... take something to cover your face and nose if you going out !!!";
+       new Notification('Lillith: hey teddy',{
+        body: "The temperature is "+ temp + ' ℃ ' + wSuggestion.innerText,
+        icon: './assets/perso-ia.png'
+    })
     }else if(id >= 801 && id <= 804){
         wIcon.src = "./assets/Icons/cloud.svg";
         wSuggestion.innerText = "it's cold outside, Mind Carying a jacket";
-        
-        //Notification 
-        Notification.requestPermission().then(perm => {
-        if (perm === 'granted') {
-            new Notification('Lillith: hey teddy',{
-                body: "The temperature is "+ temp + " it's cold outside, Mind Carying a jacket",
-                icon: './assets/perso-ia.png'
-            })
-        } 
-    })
+        new Notification('Lillith: hey teddy',{
+            body: "The temperature is "+ temp + ' ℃ ' + wSuggestion.innerText,
+            icon: './assets/perso-ia.png'
+        })
+ 
     }else if((id >= 500 && id <= 531) || (id >= 300 && id <= 321)){
         wIcon.src = "./assets/Icons/rain.svg";
        wSuggestion.innerText = "It's currently raining outside, don't forget to carry an umbrella";
+       new Notification('Lillith: hey teddy',{
+        body: "The temperature is "+ temp + ' ℃ ' + wSuggestion.innerText,
+        icon: './assets/perso-ia.png'
+    })
     }
 
     /* change the message according to temperature */
@@ -179,8 +228,9 @@ function weatherDetails(info){
 
     wrapper.querySelector('.current-temp').innerText = Math.floor(temp);
     wrapper.querySelector('.desc').innerText = description;
-
-
+        
+            
+        
 
     //console.log(info);
 
