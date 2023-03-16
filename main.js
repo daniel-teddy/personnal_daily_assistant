@@ -4,7 +4,10 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".spinner").classList.add("hidden");
 		//page
         document.querySelector(".all").classList.remove("hidden");
-	//}, 1000);
+	// }, 1000);
+
+        
+
 	}, 6000);
 });
 
@@ -28,6 +31,29 @@ const ThisDay = (`${today} / ${currentMonth} / ${currentYear}`);
 
 
 
+//Notification When user loose focus
+Notification.requestPermission().then(perm => {
+    if (perm === 'granted') {
+        //new Notification('Lillith: hey teddy')
+    } 
+}) 
+
+let notif
+
+document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === 'hidden') {
+
+       notif = new Notification("Lillith: Hey Teddy !!!", {
+            body: "Don't forget to check your Todo List !!!",
+            icon: './assets/perso-ia.png'
+        })
+    } /* else {
+        notif.close();
+    } */
+})
+
+
+
 todayShowDate.textContent = ThisDay;
 
 /* time section */
@@ -46,10 +72,11 @@ wSuggestion = document.querySelector(".suggestion");
 
 let api;
 
-meteo_section.addEventListener("click", () => {
+document.addEventListener("DOMContentLoaded", () => {
     if(navigator.geolocation){
         //check if the navigator supports geolocalisation api
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        
     }else {
         alert("this browser doesn't support geolocation api !!!")
     }
@@ -63,6 +90,9 @@ function onSuccess(position){
 
     api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitute}&appid=${newApiKey}`;
     fetchData();
+
+
+
     
 }
 /* get the current location */
@@ -109,6 +139,8 @@ function weatherDetails(info){
 
     console.log(city, country)
     console.log(info)
+   // localStorage.setItem('town', city, country);
+
 
     let location_min =document.querySelector('.loacion')
     location_min.innerText = 'Location : ' + (city)
@@ -119,21 +151,47 @@ function weatherDetails(info){
     if(id == 800){
         wIcon.src = "./assets/Icons/clear.svg";
         wSuggestion.innerText = "What a good weather to go for a out";
+        new Notification('Lillith: hey teddy',{
+            body: "The temperature is "+ temp + ' ℃ ' + wSuggestion.innerText,
+            icon: './assets/perso-ia.png'
+        })
+    
     }else if(id >= 200 && id <= 232){
         wIcon.src = "./assets/Icons/storm.svg";  
         wSuggestion.innerText = "Going out ? mind taking an umbrella and something to keep you dry";
+        new Notification('Lillith: hey teddy',{
+            body: "The temperature is "+ temp + ' ℃ ' + wSuggestion.innerText,
+            icon: './assets/perso-ia.png'
+        })
     }else if(id >= 600 && id <= 622){
         wIcon.src = "./assets/Icons/snow.svg";
         wSuggestion.innerText = "Snowing Outside, stay warm and avoid going out !!!";
+        new Notification('Lillith: hey teddy',{
+            body: "The temperature is "+ temp + ' ℃ ' + wSuggestion.innerText,
+            icon: './assets/perso-ia.png'
+        })
     }else if(id >= 701 && id <= 781){
         wIcon.src = "./assets/Icons/haze.svg";
        wSuggestion.innerText = "Hazy .... take something to cover your face and nose if you going out !!!";
+       new Notification('Lillith: hey teddy',{
+        body: "The temperature is "+ temp + ' ℃ ' + wSuggestion.innerText,
+        icon: './assets/perso-ia.png'
+    })
     }else if(id >= 801 && id <= 804){
         wIcon.src = "./assets/Icons/cloud.svg";
         wSuggestion.innerText = "it's cold outside, Mind Carying a jacket";
+        new Notification('Lillith: hey teddy',{
+            body: "The temperature is "+ temp + ' ℃ ' + wSuggestion.innerText,
+            icon: './assets/perso-ia.png'
+        })
+ 
     }else if((id >= 500 && id <= 531) || (id >= 300 && id <= 321)){
         wIcon.src = "./assets/Icons/rain.svg";
        wSuggestion.innerText = "It's currently raining outside, don't forget to carry an umbrella";
+       new Notification('Lillith: hey teddy',{
+        body: "The temperature is "+ temp + ' ℃ ' + wSuggestion.innerText,
+        icon: './assets/perso-ia.png'
+    })
     }
 
     /* change the message according to temperature */
@@ -155,8 +213,9 @@ function weatherDetails(info){
 
     wrapper.querySelector('.current-temp').innerText = Math.floor(temp);
     wrapper.querySelector('.desc').innerText = description;
-
-
+        
+            
+        
 
     //console.log(info);
 
@@ -293,6 +352,7 @@ function DisplayTodos () {
 		todoItem.classList.add('gap-2');
 		todoItem.classList.add('mb-1');
 		todoItem.classList.add('w-full');
+		todoItem.classList.add('w-full');
 
 		const label = document.createElement('label');
 		const input = document.createElement('input');
@@ -323,7 +383,7 @@ function DisplayTodos () {
 		deleteButton.classList.add('event');
 		deleteButton.classList.add('p-1');
 
-		content.innerHTML = `<input class="p-1 w-64" type="text" value="${todo.content}" readonly>`;
+		content.innerHTML = `<input class="text-slate-800 p-1 w-64" type="text" value="${todo.content}" readonly>`;
 		edit.innerHTML = `<i class="ri-edit-line p-1"></i>`;
 		deleteButton.innerHTML = `<i class="ri-delete-bin-5-line p-1"></i>`;
 
