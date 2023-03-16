@@ -54,9 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }else {
         alert("this browser doesn't support geolocation api !!!")
     }
-    Notification.requestPermission().then(perm => {
+
+    Notification.requestPermission().then(perm => {  // works only on desktop
         if (perm === 'granted') {
-            new Notification('Lillith: hey teddy')
+            new Notification('Lilith: hey teddy')
         } 
     })
 });
