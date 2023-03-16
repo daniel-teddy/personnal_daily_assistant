@@ -50,9 +50,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if(navigator.geolocation){
         //check if the navigator supports geolocalisation api
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
+         
     }else {
         alert("this browser doesn't support geolocation api !!!")
     }
+    Notification.requestPermission().then(perm => {
+        if (perm === 'granted') {
+            new Notification('Lillith: hey teddy')
+        } 
+    })
 });
 
 function onSuccess(position){
@@ -323,7 +329,7 @@ function DisplayTodos () {
 		deleteButton.classList.add('event');
 		deleteButton.classList.add('p-1');
 
-		content.innerHTML = `<input class="p-1 w-64" type="text" value="${todo.content}" readonly>`;
+		content.innerHTML = `<input class="p-1 w-64 text-slate-800" type="text" value="${todo.content}" readonly>`;
 		edit.innerHTML = `<i class="ri-edit-line p-1"></i>`;
 		deleteButton.innerHTML = `<i class="ri-delete-bin-5-line p-1"></i>`;
 
