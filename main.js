@@ -46,7 +46,7 @@ wSuggestion = document.querySelector(".suggestion");
 
 let api;
 
-meteo_section.addEventListener("click", () => {
+document.addEventListener("DOMContentLoaded", () => {
     if(navigator.geolocation){
         //check if the navigator supports geolocalisation api
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
