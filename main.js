@@ -28,11 +28,11 @@ const ThisDay = (`${today} / ${currentMonth} / ${currentYear}`);
 //console.log(ThisDay); 
 
 //Notification 
-/* Notification.requestPermission().then(perm => {
+ Notification.requestPermission().then(perm => {
     if (perm === 'granted') {
         new Notification('Lillith: hey teddy')
     } 
-}) */
+})
 
 
 todayShowDate.textContent = ThisDay;
@@ -53,7 +53,7 @@ wSuggestion = document.querySelector(".suggestion");
 
 let api;
 
-document.addEventListener("DOMContentLoaded", () => {
+meteo_section.addEventListener("click", () => {
     if(navigator.geolocation){
         //check if the navigator supports geolocalisation api
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -120,8 +120,6 @@ function weatherDetails(info){
 
     console.log(city, country)
     console.log(info)
-   // localStorage.setItem('town', city, country);
-
 
     let location_min =document.querySelector('.loacion')
     location_min.innerText = 'Location : ' + (city)
@@ -132,7 +130,6 @@ function weatherDetails(info){
     if(id == 800){
         wIcon.src = "./assets/Icons/clear.svg";
         wSuggestion.innerText = "What a good weather to go for a out";
-    
     }else if(id >= 200 && id <= 232){
         wIcon.src = "./assets/Icons/storm.svg";  
         wSuggestion.innerText = "Going out ? mind taking an umbrella and something to keep you dry";
@@ -145,16 +142,6 @@ function weatherDetails(info){
     }else if(id >= 801 && id <= 804){
         wIcon.src = "./assets/Icons/cloud.svg";
         wSuggestion.innerText = "it's cold outside, Mind Carying a jacket";
-        
-        //Notification 
-        Notification.requestPermission().then(perm => {
-        if (perm === 'granted') {
-            new Notification('Lillith: hey teddy',{
-                body: "The temperature is "+ temp + " it's cold outside, Mind Carying a jacket",
-                icon: './assets/perso-ia.png'
-            })
-        } 
-    })
     }else if((id >= 500 && id <= 531) || (id >= 300 && id <= 321)){
         wIcon.src = "./assets/Icons/rain.svg";
        wSuggestion.innerText = "It's currently raining outside, don't forget to carry an umbrella";
@@ -317,7 +304,6 @@ function DisplayTodos () {
 		todoItem.classList.add('gap-2');
 		todoItem.classList.add('mb-1');
 		todoItem.classList.add('w-full');
-		todoItem.classList.add('w-full');
 
 		const label = document.createElement('label');
 		const input = document.createElement('input');
@@ -348,7 +334,7 @@ function DisplayTodos () {
 		deleteButton.classList.add('event');
 		deleteButton.classList.add('p-1');
 
-		content.innerHTML = `<input class="text-slate-800 p-1 w-64" type="text" value="${todo.content}" readonly>`;
+		content.innerHTML = `<input class="p-1 w-64" type="text" value="${todo.content}" readonly>`;
 		edit.innerHTML = `<i class="ri-edit-line p-1"></i>`;
 		deleteButton.innerHTML = `<i class="ri-delete-bin-5-line p-1"></i>`;
 
