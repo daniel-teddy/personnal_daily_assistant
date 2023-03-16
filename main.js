@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		//page
         document.querySelector(".all").classList.remove("hidden");
 	//}, 1000);
-
 	}, 6000);
 });
 
@@ -27,12 +26,6 @@ const ThisDay = (`${today} / ${currentMonth} / ${currentYear}`);
 
 //console.log(ThisDay); 
 
-//Notification 
- Notification.requestPermission().then(perm => {
-    if (perm === 'granted') {
-        new Notification('Lillith: hey teddy')
-    } 
-})
 
 
 todayShowDate.textContent = ThisDay;
@@ -57,7 +50,6 @@ meteo_section.addEventListener("click", () => {
     if(navigator.geolocation){
         //check if the navigator supports geolocalisation api
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
-        
     }else {
         alert("this browser doesn't support geolocation api !!!")
     }
@@ -71,9 +63,6 @@ function onSuccess(position){
 
     api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitute}&appid=${newApiKey}`;
     fetchData();
-
-
-
     
 }
 /* get the current location */
